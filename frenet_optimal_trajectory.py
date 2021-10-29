@@ -776,10 +776,10 @@ class FrenetPlanner:
                 - find the optimal path based on cost values
         """
 
-        fplist = self.calc_frenet_paths(f_state, other_actors, target_speed=target_speed)
-        fplist = self.calc_global_paths(fplist)
-        fplist = self.calc_curvature_paths(fplist)
-        fplist = self.check_paths(fplist)
+        fplist = self.calc_frenet_paths(f_state, other_actors, target_speed=target_speed) # 生成路径
+        fplist = self.calc_global_paths(fplist) # 路径全局坐标转换
+        fplist = self.calc_curvature_paths(fplist) # 路径全局曲率坐标转换
+        fplist = self.check_paths(fplist) # 碰撞路径筛选
 
         # find minimum cost path
         mincost = float("inf")

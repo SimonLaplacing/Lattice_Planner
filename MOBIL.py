@@ -98,7 +98,7 @@ class MOBIL:
         a_: Projected IDM command acceleration
         """
         ego_s_ = ego_s + ego_v * self.pt    # ego s projection (constant speed)
-        ego_v_ = ego_v + sur_actors['left down']['a'] * self.pt
+        ego_v_ = ego_v + 0 * self.pt
 
         # Left down
         if sur_actors['left down']['actor'] is not None:

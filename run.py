@@ -22,7 +22,7 @@ def parse_args_cfgs():
     parser.add_argument('--play_mode', type=int, help='Display mode: 0:off, 1:2D, 2:3D ', default=1)
     parser.add_argument('--carla_host', metavar='H', default='localhost', help='IP of the host server (default: 127.0.0.1)')
     parser.add_argument('-p', '--carla_port', metavar='P', default=2000, type=int, help='TCP port to listen to (default: 2000)')
-    parser.add_argument('--tm_port', default=8000, type=int, help='Traffic Manager TCP port to listen to (default: 8000)')
+    parser.add_argument('--tm_port', default=2000, type=int, help='Traffic Manager TCP port to listen to (default: 8000)')
     parser.add_argument('--carla_res', metavar='WIDTHxHEIGHT', default='1280x720', help='window resolution (default: 1280x720)')
     args = parser.parse_args()
 

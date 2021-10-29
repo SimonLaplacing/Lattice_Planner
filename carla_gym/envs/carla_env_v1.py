@@ -58,7 +58,7 @@ class CarlaGymEnv(gym.Env):
         self.n_step = 0
         try:
             self.global_route = np.load(
-                'global_route_town04.npy')  # track waypoints (center lane of the second lane from left)
+                'road_maps/global_route_town04.npy')  # track waypoints (center lane of the second lane from left)
         except IOError:
             self.global_route = None
 
@@ -105,8 +105,8 @@ class CarlaGymEnv(gym.Env):
                 *********************************************** Behavior Planner *****************************************************
                 **********************************************************************************************************************
         """
-        # self.MOBIL.run_step(self.f_state, self.traffic_module.actors_batch)
-        # change_lane = 0 # random.randint(-1, 1)
+        self.MOBIL.run_step(self.f_state, self.traffic_module.actors_batch)
+        change_lane = 0 # random.randint(-1, 1)
         """
                 **********************************************************************************************************************
                 *********************************************** Motion Planner *******************************************************
@@ -279,7 +279,7 @@ class CarlaGymEnv(gym.Env):
                                                 wp.transform.location.z]], axis=0)
                 # To visualize point clouds
                 self.world_module.points_to_draw['wp {}'.format(wp.id)] = [wp.transform.location, 'COLOR_CHAMELEON_0']
-            np.save('global_route_town04', self.global_route)
+            np.save('road_maps/global_route_town04', self.global_route)
 
         self.motionPlanner = MotionPlanner()
 
